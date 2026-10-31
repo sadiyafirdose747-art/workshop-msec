@@ -1,0 +1,773 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARCHÉ | Interior & Exterior Design</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --dark: #20231f;
+    --cream: #f6f4ef;
+    --gold: #b59a72;
+    --white: #fff;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* NAVBAR */
+
+header {
+    width: 100%;
+    padding: 22px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--cream);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 29px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 25px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 130px 8% 70px;
+    background:
+    linear-gradient(90deg, rgba(0,0,0,.65), rgba(0,0,0,.12)),
+    url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1800')
+    center/cover no-repeat;
+    color: white;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.tag {
+    color: #e2cba7;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(45px, 7vw, 85px);
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 480px;
+    color: #eee;
+}
+
+.btn {
+    display: inline-block;
+    padding: 16px 32px;
+    margin-top: 32px;
+    background: var(--gold);
+    color: white;
+    border: none;
+    transition: .3s;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: white;
+    color: var(--dark);
+    transform: translateY(-4px);
+}
+
+/* COMMON SECTION */
+
+section {
+    padding: 100px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading span {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.section-heading h2 {
+    font-size: clamp(32px, 5vw, 48px);
+    margin-top: 15px;
+}
+
+.section-heading p {
+    color: #777;
+    margin-top: 15px;
+    line-height: 1.7;
+}
+
+/* ABOUT */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.about-text h2 {
+    font-size: 46px;
+    margin: 20px 0;
+}
+
+.about-text p {
+    color: #777;
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.small-label {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+/* DESIGN CARDS */
+
+.design-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.design-card {
+    background: white;
+    overflow: hidden;
+    transition: .4s;
+}
+
+.design-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.12);
+}
+
+.design-card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: .5s;
+}
+
+.design-card:hover img {
+    transform: scale(1.04);
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-content h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* EXTERIOR BANNER */
+
+.exterior {
+    background:
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1800')
+    center/cover fixed;
+    color: white;
+    text-align: center;
+    padding: 150px 8%;
+}
+
+.exterior h2 {
+    font-size: clamp(38px, 6vw, 65px);
+    margin: 20px 0;
+}
+
+.exterior p {
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.8;
+    color: #eee;
+}
+
+/* GALLERY */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: .4s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03);
+    filter: brightness(.8);
+}
+
+/* SERVICES */
+
+.services {
+    background: #eae7df;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.service {
+    padding: 40px 25px;
+    background: var(--cream);
+    text-align: center;
+    transition: .3s;
+}
+
+.service:hover {
+    background: var(--dark);
+    color: white;
+    transform: translateY(-8px);
+}
+
+.service .icon {
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.service h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.service p {
+    color: #888;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.service:hover p {
+    color: #ddd;
+}
+
+/* CONTACT */
+
+.contact {
+    background: var(--dark);
+    color: white;
+}
+
+.contact-container {
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+.contact-container h2 {
+    font-size: 45px;
+    margin: 20px 0;
+}
+
+.contact-container p {
+    color: #bbb;
+    line-height: 1.8;
+}
+
+.contact form {
+    margin-top: 35px;
+    display: grid;
+    gap: 15px;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid #555;
+    background: transparent;
+    color: white;
+    outline: none;
+    font-family: inherit;
+}
+
+.contact textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+    border-color: var(--gold);
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px 8%;
+    text-align: center;
+    background: #171a17;
+    color: #aaa;
+    font-size: 13px;
+}
+
+footer span {
+    color: var(--gold);
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px) {
+    nav {
+        gap: 15px;
+    }
+
+    .design-grid,
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about {
+        gap: 35px;
+    }
+}
+
+@media(max-width: 650px) {
+    header {
+        padding: 18px 6%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: var(--cream);
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    section {
+        padding: 70px 6%;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .about img {
+        height: 350px;
+    }
+
+    .design-grid,
+    .service-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid img {
+        height: 300px;
+    }
+
+    .hero {
+        min-height: 85vh;
+    }
+
+    .exterior {
+        background-attachment: scroll;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<header>
+    <div class="logo">ARCHÉ.</div>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation">☰</button>
+
+    <nav id="navbar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#interior">Interior</a>
+        <a href="#exterior">Exterior</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO SECTION -->
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="tag">Architecture • Interior • Lifestyle</div>
+
+        <h1>Designing Spaces, Creating Experiences.</h1>
+
+        <p>
+            We transform ordinary spaces into extraordinary living
+            experiences through modern architecture, elegant interiors
+            and timeless exterior designs.
+        </p>
+
+        <a href="#interior" class="btn">EXPLORE DESIGNS →</a>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+
+<section class="about" id="about">
+
+    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1000"
+    alt="Modern luxury interior living room">
+
+    <div class="about-text">
+        <span class="small-label">About Our Studio</span>
+
+        <h2>Where Creativity Meets Architecture.</h2>
+
+        <p>
+            ARCHÉ is a modern design studio focused on creating
+            beautiful, functional and luxurious spaces.
+        </p>
+
+        <p>
+            From contemporary interiors to stunning exterior
+            architecture, we bring your dream home to life with
+            creativity, innovation and attention to detail.
+        </p>
+
+        <a href="#services" class="btn">DISCOVER MORE →</a>
+    </div>
+</section>
+
+<!-- INTERIOR DESIGNS -->
+
+<section id="interior">
+
+    <div class="section-heading">
+        <span>Our Expertise</span>
+        <h2>Interior Designs</h2>
+        <p>Beautiful spaces designed around your lifestyle.</p>
+    </div>
+
+    <div class="design-grid">
+
+        <div class="design-card">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800"
+            alt="Luxury living room">
+            <div class="card-content">
+                <h3>Living Room</h3>
+                <p>Elegant living spaces with modern furniture,
+                natural textures and beautiful lighting.</p>
+            </div>
+        </div>
+
+        <div class="design-card">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800"
+            alt="Modern bedroom">
+            <div class="card-content">
+                <h3>Bedroom</h3>
+                <p>Relaxing and luxurious bedrooms with
+                sophisticated designs and warm colours.</p>
+            </div>
+        </div>
+
+        <div class="design-card">
+            <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800"
+            alt="Modern kitchen">
+            <div class="card-content">
+                <h3>Modern Kitchen</h3>
+                <p>Smart kitchen layouts combining style,
+                functionality and premium materials.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- EXTERIOR SECTION -->
+
+<section class="exterior" id="exterior">
+
+    <span class="small-label">Exterior Architecture</span>
+
+    <h2>Beyond Beautiful. Built to Inspire.</h2>
+
+    <p>
+        Explore contemporary villas, modern house elevations,
+        breathtaking facades and architectural masterpieces.
+        Every detail creates a lasting impression.
+    </p>
+
+    <a href="#gallery" class="btn">VIEW PROJECTS →</a>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+    <div class="section-heading">
+        <span>Our Portfolio</span>
+        <h2>Design Inspiration Gallery</h2>
+        <p>A collection of beautiful architectural spaces.</p>
+    </div>
+
+    <div class="gallery-grid">
+
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800" alt="Modern interior">
+
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800" alt="Luxury home">
+
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800" alt="Modern house">
+
+        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=800" alt="Living room design">
+
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800" alt="Interior design">
+
+        <img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800" alt="Exterior architecture">
+
+    </div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+
+    <div class="section-heading">
+        <span>What We Do</span>
+        <h2>Our Services</h2>
+        <p>Complete design solutions for your dream home.</p>
+    </div>
+
+    <div class="service-grid">
+
+        <div class="service">
+            <div class="icon">🏡</div>
+            <h3>Home Architecture</h3>
+            <p>Innovative architectural planning
+            for beautiful modern homes.</p>
+        </div>
+
+        <div class="service">
+            <div class="icon">🛋️</div>
+            <h3>Interior Design</h3>
+            <p>Creative interior concepts with
+            luxurious and functional spaces.</p>
+        </div>
+
+        <div class="service">
+            <div class="icon">🌿</div>
+            <h3>Landscape Design</h3>
+            <p>Beautiful gardens and outdoor
+            spaces inspired by nature.</p>
+        </div>
+
+        <div class="service">
+            <div class="icon">🏢</div>
+            <h3>Exterior Design</h3>
+            <p>Contemporary elevations and
+            stunning building facades.</p>
+        </div>
+
+        <div class="service">
+            <div class="icon">📐</div>
+            <h3>Space Planning</h3>
+            <p>Smart layouts that maximise
+            comfort and functionality.</p>
+        </div>
+
+        <div class="service">
+            <div class="icon">💡</div>
+            <h3>3D Visualization</h3>
+            <p>Visualise your dream home
+            before construction begins.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-container">
+
+        <span class="small-label">Let's Work Together</span>
+
+        <h2>Let's Design Your Dream Home.</h2>
+
+        <p>
+            Have a project in mind? Contact our design team
+            and let's create something extraordinary together.
+        </p>
+
+        <form id="contactForm">
+
+            <input type="text" id="name"
+            placeholder="Your Name" required>
+
+            <input type="email" id="email"
+            placeholder="Your Email" required>
+
+            <input type="text" id="subject"
+            placeholder="Project Type" required>
+
+            <textarea id="message"
+            placeholder="Tell us about your dream project..."
+            required></textarea>
+
+            <button type="submit" class="btn">
+                SEND ENQUIRY →
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <p>© 2026 <span>ARCHÉ.</span> All Rights Reserved.</p>
+    <p>Designed for modern living.</p>
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+const menuBtn = document.getElementById("menuBtn");
+const navbar = document.getElementById("navbar");
+
+menuBtn.addEventListener("click", () => {
+    navbar.classList.toggle("active");
+});
+
+document.querySelectorAll("#navbar a").forEach(link => {
+    link.addEventListener("click", () => {
+        navbar.classList.remove("active");
+    });
+});
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+
+    alert("Thank you " + name +
+    "! Your enquiry has been received in this demo.");
+
+    this.reset();
+});
+
+</script>
+
+</body>
+</html>
